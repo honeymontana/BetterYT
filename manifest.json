@@ -1,18 +1,22 @@
 {
-    "description": "Make Youtube great again! Disables recommendations for videos with Cyrillic",
     "manifest_version": 2,
     "name": "BetterYT",
     "version": "1.0",
-    "homepage_url": "https://github.com/honeymontana/BetterYT",
+    "description": "Customize YouTube video language display",
     "icons": {
-      "48": "icons/BetterYT-48.png"
+        "48": "icons/BetterYT-48.png"
     },
-  
+    "permissions": [
+        "storage"
+    ],
+    "browser_action": {
+        "default_popup": "/src/popup.html",
+        "default_icon": "/icons/BetterYT-48.png"
+    },
     "content_scripts": [
-      {
-        "matches": ["*://*.youtube.com/*"],
-        "js": ["/src/main.js"]
-      }
+        {
+            "matches": ["*://*.youtube.com/*"],
+            "js": ["/src/main.js"]
+        }
     ]
-  
-  }
+}
