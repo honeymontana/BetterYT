@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html data-theme="dark">
+
+<head>
+	<meta charset="UTF-8">
+	<style>
+		:root[data-theme="dark"] {
+			--bg-primary: #111;
+			--bg-secondary: #222;
+			--bg-hover: #333;
+			--text-primary: #fff;
+			--text-secondary: #888;
+			--border-color: #333;
+			--accent-color: #ff0000;
+		}
+
+		:root[data-theme="light"] {
+			--bg-primary: #fff;
+			--bg-secondary: #f5f5f5;
+			--bg-hover: #eee;
+			--text-primary: #111;
+			--text-secondary: #666;
+			--border-color: #ddd;
+			--accent-color: #ff0000;
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			width: 320px;
+			font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+			background: var(--bg-primary);
+			color: var(--text-primary);
+		}
+
+		.container {
+			padding: 20px;
+		}
+
+		h1 {
+			font-size: 20px;
+			font-weight: 600;
+			margin-bottom: 24px;
+			color: var(--text-primary);
+			display: flex;
+			align-items: center;
+			gap: 8px;
+		}
+
+		.logo {
+			width: 24px;
+			height: 24px;
+			border-radius: 6px;
+		}
+
+		.section {
+			margin-bottom: 24px;
+		}
+
+		.section-title {
+			font-size: 14px;
+			color: var(--text-secondary);
+			margin-bottom: 12px;
+			text-transform: uppercase;
+			letter-spacing: 0.5px;
+		}
+
+		.switch-wrapper {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 12px 16px;
+			background: var(--bg-secondary);
+			border-radius: 12px;
+			transition: background 0.2s;
+			margin-bottom: 12px;
+		}
+
+		.switch-wrapper:hover {
+			background: var(--bg-hover);
+		}
+
+		.label {
+			font-size: 15px;
+			font-weight: 500;
+			color: var(--text-primary);
+		}
+
+		.switch {
+			position: relative;
+			display: inline-block;
+			width: 44px;
+			height: 24px;
+		}
+
+		.switch input {
+			opacity: 0;
+			width: 0;
+			height: 0;
+		}
+
+		.slider {
+			position: absolute;
+			cursor: pointer;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: var(--text-secondary);
+			transition: .3s;
+			border-radius: 24px;
+		}
+
+		.slider:before {
+			position: absolute;
+			content: "";
+			height: 18px;
+			width: 18px;
+			left: 3px;
+			bottom: 3px;
+			background-color: var(--bg-primary);
+			transition: .3s;
+			border-radius: 50%;
+		}
+
+		input:checked+.slider {
+			background-color: var(--accent-color);
+		}
+
+		input:checked+.slider:before {
+			transform: translateX(20px);
+		}
+
+		.stats {
+			background: var(--bg-secondary);
+			border-radius: 12px;
+			padding: 16px;
+			margin-bottom: 12px;
+		}
+
+		.stats-row {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 8px;
+			font-size: 14px;
+			color: var(--text-primary);
+		}
+
+		.stats-value {
+			font-weight: 600;
+		}
+
+		.footer {
+			padding: 12px;
+			text-align: center;
+			font-size: 12px;
+			color: var(--text-secondary);
+			border-top: 1px solid var(--border-color);
+		}
+
+		 .quick-actions {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .action-button {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            border-radius: 8px;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+
+        .action-button:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .channel-stats {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 12px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .stat-number {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .info-text {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: 8px;
+            text-align: center;
+        }
+
+        #lastScan {
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+	</style>
+	</head>
+	
+	<body>
+		<div class="container">
+			<h1>
+					<img src="/icons/BetterYT-48.png" alt="BetterYT Logo" id="logo">
+				BetterYT
+			</h1>
+	
+			<div class="section">
+				<div class="section-title">Language Filter</div>
+				<div class="switch-wrapper">
+					<span class="label">English Only</span>
+					<label class="switch">
+						<input type="checkbox" id="english">
+						<span class="slider"></span>
+					</label>
+				</div>
+	
+				<div class="switch-wrapper">
+					<span class="label">Russian Only</span>
+					<label class="switch">
+						<input type="checkbox" id="russian">
+						<span class="slider"></span>
+					</label>
+				</div>
+			</div>
+	
+			<div class="section">
+				<div class="section-title">Additional Features</div>
+				<div class="switch-wrapper">
+					<span class="label">Dark Theme</span>
+					<label class="switch">
+						<input type="checkbox" id="darkTheme" checked>
+						<span class="slider"></span>
+					</label>
+				</div>
+	
+				<div class="switch-wrapper">
+					<span class="label">Hide Shorts(doesn't work)</span>
+					<label class="switch">
+						<input type="checkbox" id="hideShorts">
+						<span class="slider"></span>
+					</label>
+				</div>
+	
+				<div class="switch-wrapper">
+					<span class="label">Hide Watched Videos</span>
+					<label class="switch">
+						<input type="checkbox" id="hideWatched">
+						<span class="slider"></span>
+					</label>
+				</div>
+			</div>
+	
+			<div class="section">
+				<div class="section-title">Quick Actions</div>
+				<div class="quick-actions">
+					<button class="action-button" id="scanPage">Scan Current Page</button>
+					<button class="action-button" id="clearStats">Clear Stats</button>
+				</div>
+	
+				<div class="channel-stats">
+					<div>Current page stats:</div>
+					<div>English videos: <span class="stat-number" id="englishCount">0</span></div>
+					<div>Russian videos: <span class="stat-number" id="russianCount">0</span></div>
+					<div>Other languages: <span class="stat-number" id="otherCount">0</span></div>
+					<div>Hidden videos: <span class="stat-number" id="hiddenCount">0</span></div>
+					<div class="info-text">Last scan: <span id="lastScan">Never</span></div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">Changes apply immediately</div>
+		<script src="popup.js"></script>
+	</body>
+	
+	</html>
